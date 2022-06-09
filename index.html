@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/jquery-colorbox/jquery.colorbox-min.js"> </script>
+    </head>
+    <body>
+        <h1>Main page says hi!</h1>
+        <button id="launchButton">Launch Falcon Heavy!</button>
+        <button id="hellButton">Go to hell...</button>
+        <button id="getForm">Get the form</button>
+
+        <form id="testForm">
+            <input name="sth" value="aaa"/>
+            <input name="secSth" value="bbb"/>
+            <input name="thirSth" value="ccc"/>
+        </form>
+        <script>
+        $("#launchButton").on('click', e=>{
+            let formSerializedArr = $("#testForm").serializeArray()
+            if(formSerializedArr.filter(e=>e.value == '').length != 0)
+            {
+                $.colorbox({
+                    href:"subPage1.html"
+                })
+            }
+            else{
+                $("#testForm").submit();
+            }
+        });
+
+
+        $("#hellButton").on('click', e=>{
+            $.colorbox.close()
+        })
+
+        $("#getForm").on('click', e=>{
+            let form = $("#testForm")
+            console.log(form.serializeArray());
+        })
+        </script>
+    </body>
+</html>

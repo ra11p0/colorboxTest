@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h2>You sure?</h2>
+        <button id="nope">Nope</button>
+        <button id="yass">Yasss</button>
+        <script>
+            $('#yass').on('click', e=>{
+                console.log("yass")
+                $("#testForm").submit();
+                $.colorbox.close();
+            })
+            $('#nope').on('click', e=>{
+                console.log("nope")
+                $.colorbox.close();
+            })
+        </script>
+    </body>
+</html>
